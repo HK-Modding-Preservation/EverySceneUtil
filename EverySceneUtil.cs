@@ -21,7 +21,7 @@ namespace EverySceneUtil {
         /// GetVersion
         /// </summary>
         /// <returns></returns>
-        public override string GetVersion() => "1.2.0.0";
+        public override string GetVersion() => "1.3.0.0";
 
         private static bool isLoading = false;
         private static KeyCode killswitch;
@@ -53,6 +53,8 @@ namespace EverySceneUtil {
             PlayerData pd = PlayerData.instance;
             try {
                 foreach(TransitionData data in TransitionData.allTransitions) {
+                    if(parameters.ExcludedScenes.Contains(data.scene))
+                        continue;
                     await _esu_Infection(data, parameters, pd, true);
                 }
             }
@@ -223,6 +225,10 @@ namespace EverySceneUtil {
         /// Writes the scene name and any relevant load parameters to modlog.txt
         /// </summary>
         public bool LogSceneName = true;
+        /// <summary>
+        /// List of scenes to skip
+        /// </summary>
+        public string[] ExcludedScenes = [];
         /// <summary>
         /// Determines how secondary boss scenes are handled
         /// </summary>

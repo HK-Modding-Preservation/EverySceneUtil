@@ -15,6 +15,7 @@ Several examples of these methods exist in the source code for this mod.
   - **BeforeLoad** is an Action which takes a string as input. This will be called if it exists before loading the scene and will pass the scene name as the parameter.
   - **OnLoad** is an Action which is called once the scene has finished loading.
   - **LogSceneName** is a bool which, when true, will write the scene name to the mod log along with any conditional data according to the two parameters below.
+  - **ExcludedScenes** is a list of scene names as strings; theses scenes will not be loaded at all the process.
   - **AdditionalScenes** allows you to specify how you want to handle any scene that would naturally load a secondary additional scene, such as boss scenes.
 	- **Ignore** will load each scene only once without modifying its state.
 	- **AlwaysLoadWithExtras** will ensure that every additional scene gets loaded without any excess repetition (Ruins1_24 will be loaded only once with mageLordDefeated=false in order to load Ruins1_24_boss)
